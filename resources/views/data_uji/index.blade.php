@@ -66,7 +66,7 @@
              {{ csrf_field() }}
              <input type="hidden" class="form-control" name="id_data_uji" id="id_data_uji">
             <label for="">Nama Data Uji Alternatif</label>
-            <input type="text" class="form-control" name="nama_data_uji" id="nama_data_uji">
+            <input type="text" class="form-control" name="nama_data_uji" id="nama_data_uji" required>
             @foreach($kriteria as $k)
                 @foreach($k->sub as $s)
                     <label for="">{{$s->kode_sub_kriteria}}</label>
@@ -74,7 +74,7 @@
                     <label for="">{{$s->nama_sub_kriteria}}</label>
                     <input type="hidden" class="form-control" value="{{$s->id_sub_kriteria}}" name="id_sub_kriteria[]" id="id_sub_kriteria_{{$s->id_sub_kriteria}}">
                     <input type="hidden" class="form-control" name="id_value_data_uji[]" id="id_value_data_uji_{{$s->id_sub_kriteria}}">
-                    <input type="text" class="form-control" name="nilai_data_uji[]" id="nilai_data_uji_{{$s->id_sub_kriteria}}">
+                    <input type="text" class="form-control" name="nilai_data_uji[]" id="nilai_data_uji_{{$s->id_sub_kriteria}}" required>
                 @endforeach
             @endforeach
         </div>
