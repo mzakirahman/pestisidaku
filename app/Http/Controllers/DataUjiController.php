@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\data_uji;
 use App\Models\kriteria;
+use App\Models\m_detail_pestisida;
 use App\Models\value_data_uji;
 use Illuminate\Http\Request;
 
@@ -143,6 +144,7 @@ class DataUjiController extends Controller
     public function destroy($data_uji)
     {
          $data = data_uji::find($data_uji);
+         $detail = m_detail_pestisida::where('id_data_uji',$data_uji)->delete();
         $data->delete();
 
         return redirect()->route('data-uji')->with('status','Data Berhasil di Hapus');
