@@ -26,7 +26,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$d->data_uji->nama_data_uji}}</td>
                     <td><img src="{{url('public/Image/'.$d->img)}}" class="w-50" alt=""></td>
-                    <td>{{!!$d->ket_pestisida!!}}</td>
+                    <td>{!!$d->ket_pestisida!!}</td>
                     <td>
                          <button class="btn btn-warning btn-detail open_modal"   value="{{$d->id_detail_pestisida}}"><i class="bi bi-pencil-square"></i></button>
                          <a href="pestisida/data/hapus/{{$d->id_detail_pestisida}}" onclick="return confirm('Yakin ingin menghapus data {{$d->id_detail_pestisida}} ini ?');" class="btn btn-danger"><i class="bi bi-trash2"></i></a>
