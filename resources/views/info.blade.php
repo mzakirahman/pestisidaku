@@ -21,7 +21,7 @@
     
     <tr>
       <th >TELEPON</th>
-      <td>:0854XXXXYYYY</td>
+      <td>:0823-8493-0167</td>
     </tr>
 
     <tr>

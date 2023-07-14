@@ -11,11 +11,11 @@
     <div class="card shadow p-2 ">
         <table class="table_new" id="dtHorizontalExample" cellspacing="0"width="100%">
            <tbody id="hasil">
-            @forEach($hama as $h)
+            @forEach($penyakit as $p)
             <tr>
             </a>
-                <td ><a href="#" type="button" class="modal_open" value="{{$h->id_hama}}" ><img src="{{url('public/hama/'.$h->img)}}" class="rounded float-left" style="max-width: 100px;" alt=""></a></td>
-                <td style="word-wrap: break-word;max-width:85%">{{$h->nama_hama}}</td>
+                <td ><a href="#" type="button" class="modal_open" value="{{$p->id_penyakit}}" ><img src="{{url('public/penyakit/'.$p->img)}}" class="rounded float-left" style="max-width: 100px;" alt=""></a></td>
+                <td style="word-wrap: break-word;max-width:85%">{{$p->nama_penyakit}}</td>
             </tr>
             @endforeach
            </tbody>
@@ -28,7 +28,7 @@
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Hama</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Penyakit Padi</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body ">
@@ -48,19 +48,19 @@
 
 <script type="text/javascript">
     $(document).on('click','.modal_open',function(){
-        var url = "hama/get-data1";
+        var url = "penyakit/get-data1";
         var id= $(this).attr('value');
         // console.log(id);
-        $.get(url + '?id_hama=' + id, function (data) {
+        $.get(url + '?id_penyakit=' + id, function (data) {
             $('#title').html('');
             $('#keterangan').html('');
             $('#preview').attr('src','');
             //success data
             // console.log(data);
             $('#exampleModal').modal('show');
-            $('#title').html(data[0].nama_hama);
-            $('#keterangan').html(data[0].ket_hama);
-            var link ="{{ URL::asset('public/hama') }}/"+data[0].img;
+            $('#title').html(data[0].nama_penyakit);
+            $('#keterangan').html(data[0].ket_penyakit);
+            var link ="{{ URL::asset('public/penyakit') }}/"+data[0].img;
             $('#preview').attr('src',link);
         }) 
     });

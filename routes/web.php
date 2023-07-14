@@ -88,4 +88,21 @@ Route::get('/info', function() {
     return view('info');
 })->name("info");
 
+// menu menuju hama dan penyakit pada padi
+Route::get('/list-hama', function() {
+    return view('list-hama');
+})->name("list-hama");
+
+
+// Route Penyakit Padi
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/penyakit', [App\Http\Controllers\PenyakitController::class, 'index'])->name('penyakit');
+    Route::get('/penyakit/get-data', [App\Http\Controllers\PenyakitController::class, 'show'])->name('penyakit/get-data');
+    Route::post('/penyakit/tambah-data/proses', [App\Http\Controllers\PenyakitController::class, 'store'])->name('penyakit/tambah-data/proses');
+    Route::post('/penyakit/edit-data/proses', [App\Http\Controllers\PenyakitController::class, 'update'])->name('penyakit/edit-data/proses');
+    Route::get('/penyakit/data/hapus/{id}', [App\Http\Controllers\PenyakitController::class, 'destroy'])->name('penyakit/data/hapus');
+    });
+    Route::get('/daftar-penyakit', [App\Http\Controllers\PenyakitController::class, 'index2'])->name('daftar-penyakit');
+    Route::get('/penyakit/get-data1', [App\Http\Controllers\PenyakitController::class, 'show'])->name('penyakit/get-data1');
+
 // Route::get('/info', [ 'info'])->name('info');

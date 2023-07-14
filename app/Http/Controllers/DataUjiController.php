@@ -29,7 +29,7 @@ class DataUjiController extends Controller
         //
         $data_uji = data_uji::with(['value.sub_kriteria' ])->get();
         $kriteria = kriteria::with('sub')->get();
-        // dd($data_uji);
+        // dd($data_uji,$kriteria);
         return view('data_uji.index', compact('data_uji','kriteria'));
     }
 
@@ -52,13 +52,12 @@ class DataUjiController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request);
         $data = $request->all();
+        // dd($data);
         $data_uji = new data_uji();
         $data_uji->nama_data_uji = $data['nama_data_uji'];
         $data_uji->save();
         $id_data = $data_uji->id_data_uji;
-        $value = new value_data_uji();
         $dt = [];
         foreach($data['id_sub_kriteria'] as $key=>$id){
             $dt[]=[
@@ -67,6 +66,9 @@ class DataUjiController extends Controller
                 'nilai_data_uji' => $data['nilai_data_uji'][$key]
             ];
         };
+
+        // dd($dt);
+
         value_data_uji::insert($dt);
         // dd($data_uji->id_data_uji);
         return redirect()->route('data-uji')->with('status','Data Berhasil Ditambahkan');

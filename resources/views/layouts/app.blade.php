@@ -95,6 +95,9 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('hama') }}">{{ __('Hama') }}</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('penyakit') }}">{{ __('Penyakit') }}</a>
+                            </li>
                             <div class="dropdown">
                             <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ __('Setting') }}
